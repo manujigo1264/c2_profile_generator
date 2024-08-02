@@ -112,6 +112,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 For questions, feedback, or support, contact:
 
-- **Author**: Your Name
-- **Email**: your-email@example.com
-- **GitHub**: Your GitHub Profile
+- **Author**: Emmanuel Jigo
+- **Email**: emmanuel.jigo@ji-sec.com
+- **GitHub**: https://github.com/manujigo1264/
