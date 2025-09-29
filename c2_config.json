@@ -1,14 +1,14 @@
 {
-  "profile_name": "win11_c2",
-  "host": "example.com",
-  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59",
-  "uris": [ "/news", "/about", "/contact" ],
-  "post_uri": "/submit",
-  "jitter": "20",
-  "sleep_time": "5000",
-  "keystore": "localhost.store",
-  "keystore_password": "pass123",
-  "metadata_prepend": "SESSIONID=",
-  "metadata_header": "Cookie",
-  "output_encoding": "base64"
+    "profile_name": "win11_c2",
+    "host": "https://example.com",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59",
+    "uris": [ "/news", "/about", "/contact" ],
+    "post_uri": "/submit",
+    "jitter": "20",
+    "sleep_time": "5000",
+    "keystore": "localhost.store",
+    "keystore_password": "pass123",
+    "metadata_prepend": "SESSIONID=",
+    "metadata_header": "Cookie",
+    "output_encoding": "base64"
 }

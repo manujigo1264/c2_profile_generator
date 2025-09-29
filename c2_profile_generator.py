@@ -1,6 +1,7 @@
 import json
 import os
 import logging
+import sys
 
 def load_config(config_file):
     """Load configuration from a JSON file."""
@@ -32,7 +33,7 @@ https-certificate {{
 }}
 
 http-get {{
-    set uri {config.get('uris', '/default-uri')};
+    set uri "{' '.join(config.get('uris', ['/default-uri']))}";
     
     client {{
         header "Host" "{config.get('host', 'default_host')}";
@@ -61,14 +62,14 @@ http-post {{
         }}
         
         output {{
-            {config.get('output_encoding', 'default_encoding')};
+            {config.get('output_encoding', 'base64')};
         }}
     }}
     
     server {{
         header "Content-Type" "application/octet-stream";
         output {{
-            {config.get('output_encoding', 'default_encoding')};
+            {config.get('output_encoding', 'base64')};
         }}
     }}
 }}
@@ -114,3 +115,4 @@ if __name__ == "__main__":
         generate_malleable_c2_profile(config)
     except Exception as e:
         logging.error(f"Failed to generate profile: {e}")
+        sys.exit(1)

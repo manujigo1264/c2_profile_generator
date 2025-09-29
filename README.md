@@ -6,8 +6,8 @@ This project sets up a Command and Control (C2) infrastructure using Malleable C
 To get started, clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/malleable-c2-infrastructure.git
-cd malleable-c2-infrastructure
+git clone https://github.com/manujigo1264/c2_profile_generator.git
+cd c2_profile_generator
 ```
 
 Ensure your environment meets the following prerequisites:
@@ -66,8 +66,8 @@ Contributions are welcome. Follow these steps to contribute:
 Fork the repository and clone your fork:
 
 ```bash
-git clone https://github.com/<your-username>/malleable-c2-infrastructure.git
-cd malleable-c2-infrastructure
+git clone https://github.com/manujigo1264/c2_profile_generator.git
+cd c2_profile_generator
 ```
 
 Create a branch for your feature:
