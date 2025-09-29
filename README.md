@@ -36,13 +36,12 @@ Generate SSL certificates using OpenSSL or a similar tool, and place them in the
 To generate C2 profiles, run the following command:
 
 ```bash
-python generate_profile.py --config c2_config_win11.json
+python c2_profile_generator.py
 ```
 
 Deploy the C2 infrastructure with:
 
 ```bash
-python deploy_c2.py --env production
 ```
 
 Access the C2 dashboard via https://your_c2_domain.com:443 with default credentials admin:password.
@@ -91,20 +90,6 @@ git push origin feature/your-feature-name
 Submit a pull request from your fork to the original repository.
 
 Please follow coding style and best practices. Write meaningful commit messages and ensure all tests pass before submitting a pull request.
-
-To run tests, use the following commands:
-
-```bash
-pytest tests/  # For unit tests
-python integration_tests.py  # For integration tests
-```
-
-Deployment can be done using Docker or manually on a server. For Docker deployment:
-
-```bash
-docker build -t c2_infrastructure .
-docker run -d -p 443:443 c2_infrastructure
-```
 
 For manual deployment, copy the project files to the server, configure the environment variables, and run deploy_c2.py.
 

@@ -33,7 +33,7 @@ https-certificate {{
 }}
 
 http-get {{
-    set uri "{' '.join(config.get('uris', ['/default-uri']))}";
+    set uri {str(config.get('uris', ['/default-uri'])).replace("'", '"')};
     
     client {{
         header "Host" "{config.get('host', 'default_host')}";
