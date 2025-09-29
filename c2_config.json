@@ -1,14 +1,19 @@
 {
-    "profile_name": "win11_c2",
-    "host": "example.com",
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59",
-    "uris": [ "/news", "/about", "/contact" ],
-    "post_uri": "/submit",
-    "jitter": "20",
-    "sleep_time": "5000",
-    "keystore": "localhost.store",
-    "keystore_password": "pass123",
-    "metadata_prepend": "SESSIONID=",
+    "profile_name": "win11_enterprise_c2",
+    "host": "cdn.updates-microsoft.com",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
+    "uris": [
+        "/api/v2/updates",
+        "/cdn/assets/scripts",
+        "/services/telemetry",
+        "/content/resources"
+    ],
+    "post_uri": "/api/v2/telemetry/submit",
+    "jitter": "35",
+    "sleep_time": "45000",
+    "keystore": "valid-ssl-cert.store",
+    "keystore_password": "S3cur3P@ssw0rd!2024",
+    "metadata_prepend": "__RequestVerificationToken=",
     "metadata_header": "Cookie",
     "output_encoding": "base64"
 }
