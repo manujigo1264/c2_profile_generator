@@ -39,11 +39,6 @@ To generate C2 profiles, run the following command:
 python c2_profile_generator.py
 ```
 
-Deploy the C2 infrastructure with:
-
-```bash
-```
-
 Access the C2 dashboard via https://your_c2_domain.com:443 with default credentials admin:password.
 
 Configuration options include:

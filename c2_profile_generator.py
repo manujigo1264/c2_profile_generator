@@ -2,6 +2,7 @@ import json
 import os
 import logging
 import sys
+import argparse
 
 def load_config(config_file):
     """Load configuration from a JSON file."""
@@ -16,9 +17,29 @@ def load_config(config_file):
         logging.error(f"Error decoding JSON from the file: {config_file}")
         raise
 
-def generate_malleable_c2_profile(config):
+
+def validate_config(config):
+    """Validate required configuration fields."""
+    required_fields = ['profile_name', 'host', 'uris', 'post_uri']
+    
+    for field in required_fields:
+        if field not in config:
+            raise ValueError(f"Missing required field: {field}")
+    
+    if not isinstance(config['uris'], list):
+        raise ValueError("'uris' must be a list")
+    
+    if not config['uris']:
+        raise ValueError("'uris' cannot be empty")
+    
+    return True
+
+def generate_malleable_c2_profile(config, output_dir=None):
     """Generate a Malleable C2 profile based on the provided configuration."""
     try:
+        logging.info(f"Generating profile: {config.get('profile_name')}")
+        logging.info(f"Target host: {config.get('host')}")
+        
         profile = f"""
 # Malleable C2 Profile
 #
@@ -94,13 +115,22 @@ post-ex {{
 set jitter "{config.get('jitter', 'default_jitter')}";
 set sleeptime "{config.get('sleep_time', 'default_sleep_time')}";
 """
-
+        
+        # Determine output path with optional directory
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+            profile_path = os.path.join(output_dir, f"{config.get('profile_name', 'default_profile')}.profile")
+        else:
+            profile_path = os.path.join(os.getcwd(), f"{config.get('profile_name', 'default_profile')}.profile")
+        
         # Write the profile to a file
-        profile_path = os.path.join(os.getcwd(), f"{config.get('profile_name', 'default_profile')}.profile")
         with open(profile_path, "w") as file:
             file.write(profile)
         
-        logging.info(f"Malleable C2 profile generated: {profile_path}")
+        logging.info(f"Profile successfully generated: {profile_path}")
+        logging.info(f"URIs configured: {config.get('uris')}")
+        
+        return profile_path
 
     except KeyError as e:
         logging.error(f"Missing configuration key: {e}")
@@ -108,10 +138,16 @@ set sleeptime "{config.get('sleep_time', 'default_sleep_time')}";
 
 # Example usage
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Generate Malleable C2 profiles')
+    parser.add_argument('--config', default='c2_config.json', help='Path to config file')
+    parser.add_argument('--output', help='Output directory for profile')
+    args = parser.parse_args()
+    
     logging.basicConfig(level=logging.INFO)
-    config_file = "c2_config.json"
+    
     try:
-        config = load_config(config_file)
+        config = load_config(args.config)
+        validate_config(config)
         generate_malleable_c2_profile(config)
     except Exception as e:
         logging.error(f"Failed to generate profile: {e}")

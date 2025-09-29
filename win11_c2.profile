@@ -12,7 +12,7 @@ https-certificate {
 }
 
 http-get {
-    set uri "/news /about /contact";
+    set uri ["/news", "/about", "/contact"];
     
     client {
         header "Host" "example.com";
