@@ -11,8 +11,8 @@
     "post_uri": "/api/v2/telemetry/submit",
     "jitter": "35",
     "sleep_time": "45000",
-    "keystore": "valid-ssl-cert.store",
-    "keystore_password": "S3cur3P@ssw0rd!2024",
+    "keystore": "your-certificate.store",
+    "keystore_password": "CHANGE_THIS_PASSWORD",
     "metadata_prepend": "__RequestVerificationToken=",
     "metadata_header": "Cookie",
     "output_encoding": "base64"
