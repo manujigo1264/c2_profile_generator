@@ -92,6 +92,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 For questions, feedback, or support, contact:
 
-- **Author**: Emmanuel Jigo
-- **Email**: emmanuel.jigo@ji-sec.com
-- **GitHub**: https://github.com/manujigo1264/
+- **Author**: JiSec
